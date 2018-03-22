@@ -8,17 +8,62 @@ class App extends Component {
 
     this.draw = this.draw.bind(this)
     this.videoEnded = this.videoEnded.bind(this)
+    this.canvasTouchStart = this.canvasTouchStart.bind(this)
+    this.canvasTouchEnd = this.canvasTouchEnd.bind(this)
 
-    this.state = {stage: 0}
+    this.state = {stage: 0, left: false, right: false}
   }
 
   videoEnded(){
-    if(this.state.stage === 0) {
+    var video = document.getElementById('video')
+
+    if(this.state.stage === 0) {  
+      video.src = `${process.env.PUBLIC_URL}/video/q1.mp4`
+      video.loop = true
+      this.setState({stage: 1})
+    }
+    else if(this.state.stage === 1) {
+      if(this.state.left === true) {
+        video.src = `${process.env.PUBLIC_URL}/video/q1-left.mp4`
+        video.loop = true
+      }
+      else{
+        video.src = `${process.env.PUBLIC_URL}/video/q1-right.mp4`
+        video.loop = true
+      }
+    }
+  }
+
+  canvasTouchStart(e) {
+    console.log(123)
+    if(this.state.stage < 1){
+      return
+    }
+    console.log(456)
+    var video = document.getElementById('video')
+
+    if(e.touches[0].pageX < window.innerWidth / 2){
+      
+      video.loop = false
+      video.src = `${process.env.PUBLIC_URL}/video/q1-left-turn.mp4`
+      this.setState({left: true})
+      console.log('left')
+    }
+    else{
+      video.loop = false
+      video.src = `${process.env.PUBLIC_URL}/video/q1-right-turn.mp4`
+      this.setState({right: true})
+      console.log('right')
+    }
+  }
+
+  canvasTouchEnd(e){
+    
+    if(this.state.stage === 1) {
       var video = document.getElementById('video')
       video.src = `${process.env.PUBLIC_URL}/video/q1.mp4`
       video.loop = true
-      video.play()
-      this.setState({stage: 1})
+      this.setState({left: false, right: false})
     }
   }
 
@@ -35,9 +80,6 @@ class App extends Component {
 
   componentDidMount() {
     
-    var video = document.getElementById('video')
-
-    video.play()
     this.draw()
     
   }
@@ -45,9 +87,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <canvas id="canvas" width="667" height="375" />
+        <canvas id="canvas" width="667" height="375" onTouchStart={this.canvasTouchStart} onTouchEnd={this.canvasTouchEnd} />
         <div id="video-contain">
-          <video id="video" src={process.env.PUBLIC_URL + '/video/intro.mp4'} onEnded={this.videoEnded}/>
+          <video id="video" src={process.env.PUBLIC_URL + '/video/intro.mp4'} onEnded={this.videoEnded} autoPlay playsInline />
         </div>
       </div>
     );
