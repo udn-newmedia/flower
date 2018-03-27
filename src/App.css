@@ -1,5 +1,16 @@
 canvas{
   width: 100%;
+  height: 100%;
+  transition: all 0.7s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#root, #app{
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 #video-contain{
@@ -7,6 +18,141 @@ canvas{
 }
 
 video{
-  display: none;
+  /* display: none; */
   width: 100%;
+}
+
+#test{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+#test img{
+  width: 100%;
+}
+
+.logo-contain{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 9999;
+}
+
+#count-contain{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  z-index: 9999;
+}
+
+#count{
+  padding-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #006835;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.number{
+  width: 24px;
+  height: 38px;
+  background-color: #FFFFFF;
+  margin-right: 10px;
+  padding: 10px 5px;
+  color: #006835;
+  border-radius: 3px;
+}
+
+#volumn{
+  width: 27.86px;
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  font-size: 30px;
+  color: #006835;
+  z-index: 9999;
+}
+
+.block{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  z-index: 8;
+}
+
+#left{
+  left: 0;
+}
+
+#right{
+  right: 0;
+}
+
+.page-button{
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  margin-top: -35px;
+}
+
+#left-button{
+  left: 0;
+}
+
+#right-button{
+  right: 0;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px){
+  #test{
+    padding-top: 5%;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .logo-contain{
+    top: 20px;
+    left: 20px;
+  }
+  #count{
+    font-size: 22px;
+  }
+  #count-contain{
+    right: 20px;
+    top: 20px;
+  }
+  .number{
+    font-size: 20px;
+    padding: 15px 10px;
+    width: 47px;
+    height: 74px;
+  }
+  .page-button{
+    margin-top: -67px;
+  }
+}
+
+@media screen and (orientation:landscape){
+  #remind{
+    display: none;
+  }
+}
+
+@media screen and (orientation:portrait){
+  #remind{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+  }
+  #remind img{
+    width: 100%;
+  }
 }

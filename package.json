@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },
-  "homepage": "http://localhost/visual/flower/build/",
+  "homepage": "https://udn.com/upf/newmedia/2018_data/flower/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
