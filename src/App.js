@@ -64,7 +64,7 @@ class App extends Component {
   }
 
   canvasTouchStart(e) {
-    console.log(123)
+    // console.log(123)
     if(window.innerWidth > 768){
       return
     }
@@ -72,7 +72,7 @@ class App extends Component {
     if(this.state.stage < 1){
       return
     }
-    console.log(456)
+    // console.log(456)
    
     var video = document.getElementById('video')
 
@@ -92,7 +92,7 @@ class App extends Component {
         this.setState({left: true})
       }
       
-      console.log('left')
+      // console.log('left')
     }
     else{
       if(this.state.stage === 1){
@@ -107,7 +107,7 @@ class App extends Component {
         // video.play()
         this.setState({right: true})
       }
-      console.log('right')
+      // console.log('right')
     }
   }
 
@@ -137,14 +137,14 @@ class App extends Component {
   }
 
   mouseDownHandle(e){
-    console.log(123)
+    // console.log(123)
     if(window.innerWidth <= 768){
       return
     }
     if(this.state.stage < 1){
       return
     }
-    console.log(456)
+    // console.log(456)
    
     var video = document.getElementById('video')
 
@@ -164,7 +164,7 @@ class App extends Component {
         this.setState({left: true})
       }
       
-      console.log('left')
+      // console.log('left')
     }
     else{
       if(this.state.stage === 1){
@@ -179,7 +179,7 @@ class App extends Component {
         // video.play()
         this.setState({right: true})
       }
-      console.log('right')
+      // console.log('right')
     }
   }
 
@@ -203,7 +203,7 @@ class App extends Component {
   }
 
   prevPage(){
-    console.log(4)
+    // console.log(4)
     var video = document.getElementById('video')
     if(this.state.stage === 2){
       video.src = './video/q1.mp4'
@@ -217,7 +217,7 @@ class App extends Component {
   }
 
   nextPage() {
-    console.log(5)
+    // console.log(5)
     var video = document.getElementById('video')
     if(this.state.stage === 1){
       video.src = './video/q2.mp4'
